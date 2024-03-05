@@ -1,14 +1,5 @@
 ---
-- name: Update and Upgrade All Ubuntu Systems
-  hosts: Group1
-  become: yes
-  tasks:
-    - name: Update apt repo
-      ansible.builtin.apt:
-        update_cache: yes
-        cache_valid_time: 3600 # Cache is considered valid for 1 hour
-    - name: Upgrade all packages to the latest version
-      ansible.builtin.apt:
-        upgrade: dist
-        autoremove: yes
-        autoclean: yes
+- hosts: all
+  tasks: 
+    - name: Get Linux Info
+      shell: uname -a > /home/javier/info.txt
